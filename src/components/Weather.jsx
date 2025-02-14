@@ -51,24 +51,37 @@ const Weather = () => {
 
       {weatherData.length > 0 && weatherData[0].main ? (
         <div className="container my-6">
-          <h1 className="bg-[#00b2ea]">
-            {" "}
-            {weatherData[0].name},{weatherData[0].sys.country}
+          <h1 className="font-bold">
+            {weatherData[0].name},{weatherData[0].sys.country}{" "}
           </h1>
           <p className="font-bold text-lg my-5">{d.toDateString()}</p>
           <div className="flex justify-evenly">
-            <p className="my-5 bg-[#00b2ea] p-6">
-              Sunrise:{" "}
+            <p className="my-5 bg-[#00b2ea] p-6 font-bold text-lg">
+              <span className="mx-3">&#127749;</span>
               {new Date(weatherData[0].sys.sunrise * 1000).toLocaleTimeString()}
             </p>
-            <p className="my-5 bg-[#00b2ea] p-6">
-              Sunset:{" "}
+            <p className="my-5 bg-[#00b2ea] p-6 font-bold text-lg">
+              <span className="mx-3"> &#127751; </span>
               {new Date(weatherData[0].sys.sunset * 1000).toLocaleTimeString()}
             </p>
           </div>
-          <p>Temperature: {weatherData[0].main.temp}°C</p>
-          <p>Visibility: {weatherData[0].visibility} meters</p>
-          <p>Wind Speed: {weatherData[0].wind?.speed} m/s</p>
+          <p className="my-5 bg-[#00b2ea] p-6 font-bold text-lg">
+            {" "}
+            <span> &#127777;</span> {weatherData[0].main.temp}°C
+          </p>
+          <p className="my-5 bg-[#00b2ea] p-6 font-bold text-lg">
+            <span>&#128065;</span> {weatherData[0].visibility} meters
+          </p>
+          <p className="my-5 bg-[#00b2ea] p-6 font-bold text-lg">
+            {" "}
+            <span>&#127744;</span> {weatherData[0].wind?.speed} m/s
+          </p>
+          <p className="my-5 bg-[#00b2ea] p-6 font-bold text-lg">
+            {weatherData[0].weather[0].main}
+            <span className="text-sm mx-1 font-medium italic">
+              {weatherData[0].weather[0].description}
+            </span>
+          </p>
         </div>
       ) : null}
     </>
