@@ -30,7 +30,6 @@ const Weather = () => {
 
   return (
     <>
-      {/* <h1>Weather App</h1> */}
       <div className="grid">
         <div className="column-1">
           <input
