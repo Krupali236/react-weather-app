@@ -30,7 +30,7 @@ const Weather = () => {
 
   return (
     <>
-      <h1>Weather App</h1>
+      {/* <h1>Weather App</h1> */}
       <div className="grid">
         <div className="column-1">
           <input
@@ -55,33 +55,34 @@ const Weather = () => {
             {weatherData[0].name},{weatherData[0].sys.country}{" "}
           </h1>
           <p className="font-bold text-lg my-5">{d.toDateString()}</p>
-          <div className="flex justify-evenly">
-            <p className="my-5 bg-[#00b2ea] p-6 font-bold text-lg">
+
+          <div className="grid grid-cols-2 gap-4 justify-items-center">
+            <p className="w-80 my-2 bg-black bg-opacity-80 text-[#00b2ea] rounded-2xl p-6 font-bold text-lg">
               <span className="mx-3">&#127749;</span>
               {new Date(weatherData[0].sys.sunrise * 1000).toLocaleTimeString()}
             </p>
-            <p className="my-5 bg-[#00b2ea] p-6 font-bold text-lg">
+            <p className="w-80 my-2 bg-black bg-opacity-80 text-[#00b2ea] rounded-2xl p-6 font-bold text-lg">
               <span className="mx-3"> &#127751; </span>
               {new Date(weatherData[0].sys.sunset * 1000).toLocaleTimeString()}
             </p>
+            <p className="w-80 my-2 bg-black bg-opacity-80 text-[#00b2ea] rounded-2xl p-6 font-bold text-lg">
+              {" "}
+              <span> &#127777;</span> {weatherData[0].main.temp}°C
+            </p>
+            <p className="w-80 my-2 bg-black bg-opacity-80 text-[#00b2ea] rounded-2xl p-6 font-bold text-lg">
+              <span>&#128065;</span> {weatherData[0].visibility} meters
+            </p>
+            <p className="w-80 my-2 bg-black bg-opacity-80 text-[#00b2ea] rounded-2xl p-6 font-bold text-lg">
+              {" "}
+              <span>&#127744;</span> {weatherData[0].wind?.speed} m/s
+            </p>
+            <p className="w-80 my-2 bg-black bg-opacity-80 text-[#00b2ea] rounded-2xl p-6 font-bold text-lg">
+            <span>&#9925;</span>  {weatherData[0].weather[0].main}
+              <span className="text-sm mx-1 font-medium italic">
+                {weatherData[0].weather[0].description}
+              </span>
+            </p>
           </div>
-          <p className="my-5 bg-[#00b2ea] p-6 font-bold text-lg">
-            {" "}
-            <span> &#127777;</span> {weatherData[0].main.temp}°C
-          </p>
-          <p className="my-5 bg-[#00b2ea] p-6 font-bold text-lg">
-            <span>&#128065;</span> {weatherData[0].visibility} meters
-          </p>
-          <p className="my-5 bg-[#00b2ea] p-6 font-bold text-lg">
-            {" "}
-            <span>&#127744;</span> {weatherData[0].wind?.speed} m/s
-          </p>
-          <p className="my-5 bg-[#00b2ea] p-6 font-bold text-lg">
-            {weatherData[0].weather[0].main}
-            <span className="text-sm mx-1 font-medium italic">
-              {weatherData[0].weather[0].description}
-            </span>
-          </p>
         </div>
       ) : null}
     </>
